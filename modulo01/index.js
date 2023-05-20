@@ -13,12 +13,16 @@ const server = express();
 //request body = corpo da requisicao, utilizado para criar ou alterar recursos
 //ex request body: { "name": "Diego", "idade": 23 }
 
+const cursos = ['NodeJS', 'Javascript', 'React Native'];
+
 //criar rotas
 //req representa os dados que vem do cliente e res representa a resposta que vai ser enviada para o cliente
-server.get('/cursos/:id', (req, res) => {
-  const nome = req.query.nome;
-  const id = req.params.id;
-  return res.json({ curso: `Curso ${id}` });
+server.get('/curso/:index', (req, res) => {
+  //   const nome = req.query.nome;
+  //   const id = req.params.id;
+  const { index } = req.params;
+  //   return res.json({ curso: `Curso ${id}` });
+  return res.json(cursos[index]);
   //   return res.json({ curso: `Aprendendo ${nome}` });
 });
 
